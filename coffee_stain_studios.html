@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Coffee Stain Studios | Our Games</title>
+
+    <style>/* Jackson Byrd 2026*/
+        /* GENERAL WEBSITE STYLING */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #151515;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* HEADER / NAVIGATION */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background-color: #101010;
+            border-bottom: 2px solid #e87524;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #e87524;
+        }
+
+        nav { display: flex; gap: 30px; }
+
+        nav a {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: #e87524; }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            padding: 80px 10%;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.55)),
+                url("images/hero-background.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content { max-width: 650px; }
+
+        .eyebrow {
+            color: #e87524;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.05;
+            font-weight: 900;
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            color: #cccccc;
+            font-size: 17px;
+            max-width: 550px;
+            margin-bottom: 30px;
+        }
+
+        .main-button {
+            display: inline-block;
+            background-color: #e87524;
+            color: #ffffff;
+            padding: 15px 28px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .main-button:hover {
+            background-color: #ffffff;
+            color: #151515;
+        }
+
+        /* SECTION HEADINGS */
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px;
+        }
+
+        .section-heading h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .section-heading p { color: #aaaaaa; }
+
+        /* GAME CATALOG */
+        .games-section {
+            padding: 90px 8%;
+            background-color: #1b1b1b;
+        }
+
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .game-card {
+            background-color: #252525;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #333333;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: #e87524;
+        }
+
+        .game-image {
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+            background-color: #333333;
+        }
+
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: 0.4s;
+        }
+
+        .game-card:hover .game-image img { transform: scale(1.05); }
+
+        .game-info { padding: 25px; }
+
+        .game-category {
+            color: #e87524;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .game-info h3 {
+            font-size: 23px;
+            margin: 10px 0 15px;
+        }
+
+        .game-info p {
+            color: #bbbbbb;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .game-info ul {
+            padding-left: 20px;
+            color: #dddddd;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .game-info li { margin-bottom: 7px; }
+
+        .game-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #444444;
+            padding-top: 20px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e87524;
+        }
+
+        .game-button {
+            background-color: #e87524;
+            padding: 10px 15px;
+            font-size: 11px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .game-button:hover {
+            background-color: #ffffff;
+            color: #151515;
+        }
+
+        /* SPECIAL PROMOTION */
+        .promotion {
+            padding: 90px 10%;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,0.93), rgba(0,0,0,0.70)),
+                url("images/promotion-background.jpg");
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .promotion-content {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .promotion h2 {
+            font-size: 45px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .promotion-content > p {
+            color: #cccccc;
+            margin-bottom: 25px;
+        }
+
+        .promo-code {
+            display: inline-flex;
+            flex-direction: column;
+            border: 2px dashed #e87524;
+            padding: 20px 45px;
+            margin: 15px 0 25px;
+        }
+
+        .promo-code span {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #aaaaaa;
+        }
+
+        .promo-code strong {
+            font-size: 30px;
+            color: #e87524;
+            letter-spacing: 2px;
+        }
+
+        .promo-small { font-size: 11px; }
+
+        /* HOW IT WORKS */
+        .process-section {
+            padding: 90px 8%;
+            background-color: #1b1b1b;
+        }
+
+        .process-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .process-card {
+            flex: 1;
+            text-align: center;
+            background-color: #252525;
+            padding: 35px 25px;
+            border-bottom: 3px solid #e87524;
+            min-height: 230px;
+        }
+
+        .process-number {
+            font-size: 40px;
+            font-weight: 900;
+            color: #e87524;
+            margin-bottom: 15px;
+        }
+
+        .process-card h3 {
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .process-card p {
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+
+        .process-arrow {
+            font-size: 30px;
+            color: #e87524;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 55px 20px;
+            background-color: #101010;
+            border-top: 2px solid #e87524;
+        }
+
+        footer h2 {
+            color: #e87524;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover { color: #e87524; }
+
+        .copyright {
+            font-size: 11px;
+            color: #666666;
+            margin-top: 20px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .game-container { grid-template-columns: repeat(2, 1fr); }
+            .process-container { flex-wrap: wrap; }
+            .process-card { flex: 1 1 40%; }
+            .process-arrow { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h1 { font-size: 42px; }
+            .game-container { grid-template-columns: 1fr; }
+            .section-heading h2 { font-size: 32px; }
+            .promotion h2 { font-size: 34px; }
+            .process-container { flex-direction: column; }
+            .process-card { width: 100%; }
+            .footer-links { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="logo">COFFEE STAIN STUDIOS</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#games">Our Games</a>
+            <a href="#process">How It Works</a>
+            <a href="#promotion">Special Offer</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="eyebrow">INDEPENDENT GAMES. UNLIMITED FUN.</p>
+            <h1>GAMES MADE<br>TO BE PLAYED.</h1>
+            <p>
+                Welcome to Coffee Stain Studios. We create unique,
+                entertaining, and unforgettable gaming experiences.
+                Explore our games and find your next adventure.
+            </p>
+            <a href="#games" class="main-button">EXPLORE OUR GAMES</a>
+        </div>
+    </section>
+
+    <!-- PRODUCT CATALOG -->
+    <section class="games-section" id="games">
+        <div class="section-heading">
+            <p class="eyebrow">THE COLLECTION</p>
+            <h2>OUR GAMES</h2>
+            <p>
+                Three unique worlds. Three completely different experiences.
+                Find the game that fits your style.
+            </p>
+        </div>
+
+        <div class="game-container">
+            <!-- GOAT SIMULATOR -->
+            <div class="game-card">
+                <div class="game-image">
+                    <!-- Replace this file path with your own Goat Simulator image. -->
+                    <img src="images/goat-simulator.jpg" alt="Goat Simulator game artwork">
+                </div>
+                <div class="game-info">
+                    <span class="game-category">CHAOS / COMEDY</span>
+                    <h3>GOAT SIMULATOR</h3>
+                    <p>
+                        Become a goat and cause as much destruction as possible.
+                        Explore an unpredictable world where the only limit is
+                        your imagination.
+                    </p>
+                    <ul>
+                        <li>Open-world exploration</li>
+                        <li>Ridiculous physics and challenges</li>
+                        <li>Hours of chaotic entertainment</li>
+                    </ul>
+                    <div class="game-bottom">
+                        <span class="price">$19.99</span>
+                        <a href="https://www.goatsimulator3.com/" target="_blank" rel="noopener noreferrer" class="game-button">EXPLORE GAME</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SATISFACTORY -->
+            <div class="game-card">
+                <div class="game-image">
+                    <!-- Replace this file path with your own Satisfactory image. -->
+                    <img src="images/satisfactory.jpg" alt="Satisfactory game artwork">
+                </div>
+                <div class="game-info">
+                    <span class="game-category">BUILDING / STRATEGY</span>
+                    <h3>SATISFACTORY</h3>
+                    <p>
+                        Build massive factories, explore an alien planet, and
+                        create an industrial empire. Your creativity is the key
+                        to building something extraordinary.
+                    </p>
+                    <ul>
+                        <li>Large-scale factory construction</li>
+                        <li>Exploration and resource collection</li>
+                        <li>Single-player and multiplayer</li>
+                    </ul>
+                    <div class="game-bottom">
+                        <span class="price">$39.99</span>
+                        <a href="https://www.satisfactorygame.com/" target="_blank" rel="noopener noreferrer" class="game-button">EXPLORE GAME</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEEP ROCK GALACTIC -->
+            <div class="game-card">
+                <div class="game-image">
+                    <!-- Replace this file path with your own Deep Rock Galactic image. -->
+                    <img src="images/deep-rock-galactic.jpg" alt="Deep Rock Galactic game artwork">
+                </div>
+                <div class="game-info">
+                    <span class="game-category">ACTION / CO-OP</span>
+                    <h3>DEEP ROCK GALACTIC</h3>
+                    <p>
+                        Team up with fellow space dwarves and explore dangerous
+                        underground caves. Mine resources, fight alien creatures,
+                        and work together to survive.
+                    </p>
+                    <ul>
+                        <li>Four-player cooperative gameplay</li>
+                        <li>Procedurally generated caves</li>
+                        <li>Unique classes and weapons</li>
+                    </ul>
+                    <div class="game-bottom">
+                        <span class="price">$29.99</span>
+                        <a href="https://www.deeprockgalactic.com/" target="_blank" rel="noopener noreferrer" class="game-button">EXPLORE GAME</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIAL PROMOTION -->
+    <section class="promotion" id="promotion">
+        <div class="promotion-content">
+            <p class="eyebrow">LIMITED-TIME OFFER</p>
+            <h2>LEVEL UP YOUR<br>GAME COLLECTION.</h2>
+            <p>
+                Ready for something new? Use our exclusive promotional code
+                at checkout and get 15% off your next game purchase.
+            </p>
+            <div class="promo-code">
+                <span>YOUR PROMO CODE</span>
+                <strong>COFFEETIME15</strong>
+            </div>
+            <p class="promo-small">
+                *Promotional code and discount are fictional examples for this website project.
+            </p>
+            <a href="#games" class="main-button">SHOP OUR GAMES</a>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="process-section" id="process">
+        <div class="section-heading">
+            <p class="eyebrow">GET STARTED</p>
+            <h2>HOW IT WORKS</h2>
+            <p>Getting into your next gaming adventure is simple.</p>
+        </div>
+
+        <div class="process-container">
+            <div class="process-card">
+                <div class="process-number">01</div>
+                <h3>CHOOSE YOUR GAME</h3>
+                <p>Browse our collection and find the experience that interests you the most.</p>
+            </div>
+
+            <div class="process-arrow">→</div>
+
+            <div class="process-card">
+                <div class="process-number">02</div>
+                <h3>PURCHASE ONLINE</h3>
+                <p>Select your game, complete your purchase, and get ready to play.</p>
+            </div>
+
+            <div class="process-arrow">→</div>
+
+            <div class="process-card">
+                <div class="process-number">03</div>
+                <h3>DOWNLOAD &amp; PLAY</h3>
+                <p>Access your game through its supported digital platform and start playing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>COFFEE STAIN STUDIOS</h2>
+        <p>Creating games worth playing.</p>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#games">Our Games</a>
+            <a href="#process">How It Works</a>
+            <a href="#promotion">Promotions</a>
+        </div>
+
+        <p class="copyright">© 2026 Coffee Stain Studios. All rights reserved.</p>
+    </footer>
+</body>
+</html>
